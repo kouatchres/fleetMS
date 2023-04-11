@@ -12,7 +12,7 @@
       <ol class="breadcrumb">
         <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
         <li><i class="fa fa-bars"></i><a href="/parameters">Parameters</a></li>
-        <li><i class="fa fa-square-o"></i>New country</li>
+        <li><i class="fa fa-square-o"></i>New state</li>
       </ol>
     </div>
   </div>
@@ -21,51 +21,51 @@
               <div class="col-lg-12">
                 <section class="panel">
                   <header class="panel-heading">
-                   Add new Country
+                   Add new State
                   </header>
                   <div class="panel-body">
-                    <form class="form-horizontal" th:action="@{/countries}" method="post">
+                    <form class="form-horizontal" th:action="@{/states}" method="post">
                          
                                    <div class="form-group">
-                        <label class="control-label col-sm-4">Capital</label>
+                        <label class="control-label col-sm-4">City</label>
                         <div class="col-sm-6">
-                          <input name="capital" type="text" size="16" class="form-control">
+                          <input name="city" type="text" size="16" class="form-control">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-sm-4">Country Code</label>
+                        <label class="control-label col-sm-4">Address</label>
                         <div class="col-sm-6">
-                            <input  name="code"  class="form-control" size="16" type="text">
+                            <input  name="address"  class="form-control" size="16" type="text">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-sm-4"> Nationality</label>
+                        <label class="control-label col-sm-4"> Country ID</label>
                         <div class="col-sm-6">
-                            <input name="nationality" type="text" class=" form-control" />
+                            <input name="countryId" type="text" class=" form-control" />
                         </div>
                       </div>
                     
                       <div class="form-group">
-                        <label class="control-label col-sm-4">Continent</label>
-
-                        <div class="col-sm-6">
-                          <input name="continent"  type="text"  class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group">
                         <label class="control-label col-sm-4">Description</label>
 
                         <div class="col-sm-6">
-                          <input  name="description" type="text"   class="form-control">
+                          <input name="description"  type="text"  class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-4">Details</label>
+
+                        <div class="col-sm-6">
+                          <input  name="details" type="text"   class="form-control">
                         </div>
                       </div>
                  
 
-                <button type="submit" href="/countryAdd" class="btn btn-success">
+                <button type="submit" href="/stateAdd" class="btn btn-success">
                                 Save
                               </button>
-                <a href="/countries" class="btn btn-warning">
+                <a href="/states" class="btn btn-warning">
                                 Exit
                               </a>
                    

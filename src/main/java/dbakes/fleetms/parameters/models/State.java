@@ -2,7 +2,13 @@ package dbakes.fleetms.parameters.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,8 +31,5 @@ import lombok.NoArgsConstructor;
         @JoinColumn(name="id",insertable = false,updatable = false)
         private Country country;
         private Integer countryId;
-        @ManyToOne
-        @JoinColumn(name="id",insertable = false,updatable = false)
-        private State state;
-        private Integer stateId;
+       
 }
