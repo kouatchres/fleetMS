@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import dbakes.fleetms.parameters.models.Country;
 import dbakes.fleetms.parameters.services.CountryService;
@@ -32,12 +33,14 @@ public class CountryController {
     public String  countryAdd(Model model){
          return "parameters/countryAdd";
     }
+//The Get Country By Id
+    @GetMapping("/parameters/country/{id}")
+    @ResponseBody
+    public Country getCountry(@PathVariable Integer id){
+        return countryService.countryById(id);
+    }
 
-//     @GetMapping("/updateCountry/{id}")
-//     public String  updateCountry(@PathVariable Integer id){
-//        Country country=  countryService.countryById(id);
-//          return "parameters/updateCountry";
-//     }
+
     @PostMapping("/countries")
     public String  saveNewCountry(Country country){
         countryService.saveCountry(country);
@@ -50,9 +53,16 @@ public class CountryController {
      return "redirect:/countries";
     }
 
-//    @RequestMapping(value="countries/update/{id}", method = {RequestMethod.GET,RequestMethod.PUT})
-//     public String updateACountry(Country country){
-//      countryService.saveCountry(country);
-//      return "redirect:/countries";
-//     }
+   @RequestMapping(value="countries/update/{id}", method = {RequestMethod.GET,RequestMethod.PUT})
+    public String update(Country country){
+     countryService.saveCountry(country);
+     return "redirect:/countries";
+    }
+
+   @GetMapping("/updateCountry/{id}")
+    public String  countryUpdate(@PathVariable Integer id, Model model){
+      Country country =  countryService.countryById(id);
+         model.addAttribute("country", country);
+         return "/parameters/updateCountry";
+    }
 }
